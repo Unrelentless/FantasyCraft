@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fcraft",
+  "name": "Fantasy Craft Mod 1.7.2",
+  "description": "Adding a touch of Final Fantasy to Minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["UnrelentlessAce"],
+  "credits": "UnrelentlessAce, Gnomorian",
+  "logoFile": "Logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

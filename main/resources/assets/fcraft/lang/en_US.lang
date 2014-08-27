@@ -1,0 +1,55 @@
+################################
+#	BLOCKS
+################################
+tile.blockMako.name=Crystallized Mako
+tile.ore.mythrilore.name=Mythril Ore
+tile.ore.orichore.name=Orichalcum Ore
+tile.ore.adamore.name=Adamantite Ore
+tile.ore.zincore.name=Zincatite Ore
+tile.ore.platinumore.name=Platinum Ore
+tile.ore.damascusore.name=Damascus ore
+tile.ore.zodiacore.name=Zodiac Ore
+tile.ore.einore.name=Einherjarium Ore
+tile.ore.scarletore.name=Scarletite Ore
+
+
+
+
+################################
+#	ITEMS
+################################
+item.green_materia.name=Green Materia
+
+
+
+
+
+
+################################
+#	ENTITIES
+################################
+entity.entityOrichalcum.name=Orichalcum
+
+
+
+
+
+
+
+################################
+#	ACHIEVEMENTS
+################################
+
+
+
+
+
+
+
+################################
+#	TOOLTIPS
+################################
+green1=Fire
+green2=Thunder
+green3=Blizzard
+green4=Quake
