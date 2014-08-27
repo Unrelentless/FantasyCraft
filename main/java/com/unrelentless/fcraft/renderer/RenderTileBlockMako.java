@@ -38,7 +38,6 @@ public class RenderTileBlockMako extends TileEntitySpecialRenderer  {
 		GL11.glDisable(3042);
 		GL11.glPopMatrix();
 
-
 		for(int i=0;i<tile.getStage();i++){
 
 			models[i] = AdvancedModelLoader.loadModel(new ResourceLocation(FantasyCraft.MODID+":models/Crystal.obj"));
