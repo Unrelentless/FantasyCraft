@@ -10,13 +10,13 @@ import net.minecraft.nbt.NBTTagList;
 public class InventorySocket implements IInventory
 {
 	/** The name your custom inventory will display in the GUI, possibly just "Inventory" */
-	private final String name = "Custom Inventory";
+	private final String name = "Socket Inv";
 	/** The key used to store and retrieve the inventory from NBT */
-	private final String tagName = "CustomInvTag";
+	private final String tagName = "SocketInvTag";
 	/** Define the inventory size here for easy reference */
 	// This is also the place to define which slot is which if you have different types,
 	// for example SLOT_SHIELD = 0, SLOT_AMULET = 1;
-	public static final int INV_SIZE = 4;
+	public static final int INV_SIZE = 8;
 	/** Inventory's size must be same as number of slots you add to the Container class */
 	private ItemStack[] inventory = new ItemStack[INV_SIZE];
 	public InventorySocket() {
