@@ -22,7 +22,7 @@ import com.unrelentless.fcraft.handlers.ConfigHandler;
 import com.unrelentless.fcraft.handlers.KeybindHandler;
 import com.unrelentless.fcraft.items.FCraftItem;
 import com.unrelentless.fcraft.items.weapons.FCraftWeapon;
-import com.unrelentless.fcraft.packets.PacketPipeline;
+import com.unrelentless.fcraft.network.PacketDispatcher;
 import com.unrelentless.fcraft.proxy.CommonProxy;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -40,10 +40,10 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 public class FantasyCraft
 {
 	public static final String MODID = "fcraft";
-	public static final String VERSION = "0.2.0";
+	public static final String VERSION = "0.2.1";
 
 	//Keybinds
-	public static KeyBinding socketMateria;
+	public static KeyBinding socketMateria, guiTest;
 
 	//says where the client and server 'proxy' code is loaded
 	@SidedProxy(clientSide = "com.unrelentless.fcraft.proxy.ClientProxy", serverSide = "com.unrelentless.fcraft.proxy.CommonProxy")
@@ -54,9 +54,6 @@ public class FantasyCraft
 	public static CreativeTabs fcraftTabWeapons = new FCraftCreativeTabWeapons(CreativeTabs.getNextID(), MODID);
 	public static CreativeTabs fcraftTabItems = new FCraftCreativeTabItem(CreativeTabs.getNextID(), MODID);
 	
-	//Set Packet Handling
-	public static final PacketPipeline packetPipeline = new PacketPipeline();
-
 	@Instance(MODID)
 	public static FantasyCraft instance;
 	
@@ -69,15 +66,23 @@ public class FantasyCraft
 		FCraftBlock.init();
 		FCraftEntity.init();
 		FCraftWeapon.init();
+		
+		// Remember to register your packets! This applies whether or not you used a
+		// custom class or direct implementation of SimpleNetworkWrapper
+		PacketDispatcher.registerPackets();
 	}
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{        
 		proxy.registerRenderers();
-		packetPipeline.initialise();
+		
 		//keybinding
 		socketMateria = new KeyBinding("Materia Socket", Keyboard.KEY_F, "FantasyCraft");
 		ClientRegistry.registerKeyBinding(socketMateria);
+		
+		guiTest = new KeyBinding("Test", Keyboard.KEY_G, "FantasyCraft");
+		ClientRegistry.registerKeyBinding(guiTest);
+		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
 		
 		//event registration
@@ -88,7 +93,5 @@ public class FantasyCraft
 	}
 
 	@EventHandler
-	public static void postInit(FMLPostInitializationEvent event) {
-		packetPipeline.postInitialise();
-	}
+	public static void postInit(FMLPostInitializationEvent event) {}
 }

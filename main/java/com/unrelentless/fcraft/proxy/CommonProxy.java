@@ -7,26 +7,32 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+import com.unrelentless.fcraft.extendedprops.FCraftExtendedPlayer;
 import com.unrelentless.fcraft.gui.GuiSocket;
 import com.unrelentless.fcraft.inventory.ContainerSocket;
-import com.unrelentless.fcraft.inventory.InventorySocket;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
 public class CommonProxy implements IGuiHandler {
 
 	private static final Map<String, NBTTagCompound> extendedEntityData = new HashMap<String, NBTTagCompound>();
 
-	public void registerRenderers() {
+	public void registerRenderers() {}
 
+	/**
+	 * Returns a side-appropriate EntityPlayer for use during message handling
+	 */
+	public EntityPlayer getPlayerEntity(MessageContext ctx) {
+		return ctx.getServerHandler().playerEntity;
 	}
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 		switch(ID){
-		case GuiSocket.GUI_ID: return new GuiSocket(player, player.inventory, new InventorySocket(player.getHeldItem()));
-	default: return null;
+		case GuiSocket.GUI_ID:return new GuiSocket(player, player.inventory, FCraftExtendedPlayer.get(player).inventory);
+		default: return null;
 		}
 	}
 
@@ -34,7 +40,7 @@ public class CommonProxy implements IGuiHandler {
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 		switch(ID){
-		case GuiSocket.GUI_ID: return new ContainerSocket(player, player.inventory, new InventorySocket(player.getHeldItem()));
+		case GuiSocket.GUI_ID:return new ContainerSocket(player, player.inventory, FCraftExtendedPlayer.get(player).inventory);
 		default: return null;
 		}
 	}

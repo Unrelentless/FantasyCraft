@@ -1,6 +1,8 @@
 package com.unrelentless.fcraft.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
@@ -20,20 +22,22 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiSocket extends GuiContainer
 {
+	public static final int GUI_ID = 21;
+	
+	/** x size of the inventory window in pixels. Defined as float, passed as int */
+	private float xSize_lo;
+	/** y size of the inventory window in pixels. Defined as float, passed as int. */
+	private float ySize_lo;
 	/** Normally I use '(ModInfo.MOD_ID, "textures/...")', but it can be done this way as well */
 	private static final ResourceLocation iconLocation = new ResourceLocation(FantasyCraft.MODID + ":textures/gui/socketingGui.png");
-
-	public static final int GUI_ID = 20;
-
 	/** Could use IInventory type to be more generic, but this way will save an import... */
 	private final InventorySocket inventory;
-
 	public GuiSocket(EntityPlayer player, InventoryPlayer inventoryPlayer, InventorySocket inventoryCustom) {
 		super(new ContainerSocket(player, inventoryPlayer, inventoryCustom));
-		this.inventory = inventoryCustom;
 		// if you need the player for something later on, store it in a local variable here as well
+		this.inventory = inventoryCustom;
 	}
-
+	
 	/**
 	 * Draws the screen and all the components in it.
 	 */

@@ -5,7 +5,8 @@ import net.minecraft.client.Minecraft;
 import com.unrelentless.fcraft.FantasyCraft;
 import com.unrelentless.fcraft.gui.GuiSocket;
 import com.unrelentless.fcraft.items.weapons.FCraftWeapon;
-import com.unrelentless.fcraft.packets.OpenGuiPacket;
+import com.unrelentless.fcraft.network.PacketDispatcher;
+import com.unrelentless.fcraft.network.packet.server.OpenGuiMessage;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -21,7 +22,7 @@ public class KeybindHandler {
 
 		if(FantasyCraft.socketMateria.isPressed() &&  FMLClientHandler.instance().getClient().inGameHasFocus) {
 			if(FMLClientHandler.instance().getClientPlayerEntity().getCurrentEquippedItem() != null && FMLClientHandler.instance().getClientPlayerEntity().getCurrentEquippedItem().getItem() instanceof FCraftWeapon){
-				FantasyCraft.packetPipeline.sendToServer(new OpenGuiPacket(GuiSocket.GUI_ID));
+				PacketDispatcher.sendToServer(new OpenGuiMessage(GuiSocket.GUI_ID));
 			}
 		}
 	}

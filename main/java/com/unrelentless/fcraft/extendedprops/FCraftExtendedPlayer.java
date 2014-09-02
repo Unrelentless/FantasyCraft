@@ -7,8 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
-import com.unrelentless.fcraft.FantasyCraft;
-import com.unrelentless.fcraft.packets.SyncPlayerPropsPacket;
+import com.unrelentless.fcraft.inventory.InventorySocket;
+import com.unrelentless.fcraft.network.PacketDispatcher;
+import com.unrelentless.fcraft.network.packet.client.SyncPlayerPropsMessage;
 import com.unrelentless.fcraft.proxy.CommonProxy;
 
 public class FCraftExtendedPlayer implements IExtendedEntityProperties {
@@ -18,6 +19,8 @@ public class FCraftExtendedPlayer implements IExtendedEntityProperties {
 	
 	private final EntityPlayer player;
 
+	public final InventorySocket inventory = new InventorySocket();
+	
 	public FCraftExtendedPlayer(EntityPlayer player){
 		this.player = player;
 		this.player.getDataWatcher().addObject(ZODIAC_WATCHER, 0);
@@ -74,7 +77,7 @@ public class FCraftExtendedPlayer implements IExtendedEntityProperties {
 		FCraftExtendedPlayer playerData = FCraftExtendedPlayer.get(player);
 		NBTTagCompound savedData = CommonProxy.getEntityData(getSaveKey(player));
 		if (savedData != null) { playerData.loadNBTData(savedData); }
-		FantasyCraft.packetPipeline.sendTo(new SyncPlayerPropsPacket(player), (EntityPlayerMP) player);
+		PacketDispatcher.sendTo(new SyncPlayerPropsMessage(player), (EntityPlayerMP) player);
 	}
 
 }
