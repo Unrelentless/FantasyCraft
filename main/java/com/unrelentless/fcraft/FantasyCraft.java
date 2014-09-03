@@ -40,7 +40,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 public class FantasyCraft
 {
 	public static final String MODID = "fcraft";
-	public static final String VERSION = "0.2.1a";
+	public static final String VERSION = "0.2.2";
 
 	//Keybinds
 	public static KeyBinding socketMateria, guiTest;
@@ -80,9 +80,7 @@ public class FantasyCraft
 		socketMateria = new KeyBinding("Materia Socket", Keyboard.KEY_F, "FantasyCraft");
 		ClientRegistry.registerKeyBinding(socketMateria);
 		
-		guiTest = new KeyBinding("Test", Keyboard.KEY_G, "FantasyCraft");
-		ClientRegistry.registerKeyBinding(guiTest);
-		
+		//Registering the gui handlers
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
 		
 		//event registration

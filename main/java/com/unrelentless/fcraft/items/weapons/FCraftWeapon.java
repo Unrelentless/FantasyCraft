@@ -30,7 +30,6 @@ public class FCraftWeapon extends ItemSword{
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
 
 		EntityPlayer player = (EntityPlayer)par3Entity;
-		Random rand = new Random();
 
 		if(par1ItemStack.stackTagCompound == null ){
 			par1ItemStack.setTagCompound(new NBTTagCompound( ));

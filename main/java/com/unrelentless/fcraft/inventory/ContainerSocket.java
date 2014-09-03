@@ -15,8 +15,8 @@ public class ContainerSocket extends Container
 	public int numberOfSlots;
 	
 	/** Avoid magic numbers! This will greatly reduce the chance of you making errors in 'transferStackInSlot' method */
-	private static final int ARMOR_START = InventorySocket.INV_SIZE, ARMOR_END = ARMOR_START+3,
-			INV_START = ARMOR_END+1, INV_END = INV_START+26, HOTBAR_START = INV_END+1, HOTBAR_END = HOTBAR_START+8;
+	private static int ARMOR_START, ARMOR_END, INV_START, INV_END, HOTBAR_START, HOTBAR_END;
+
 	public ContainerSocket(EntityPlayer player, InventoryPlayer inventoryPlayer, InventorySocket inventoryCustom) {
 		int i;
 		// Add CUSTOM slots - we'll just add two for now, both of the same type.
@@ -25,6 +25,12 @@ public class ContainerSocket extends Container
 		//addSlotToContainer(new SlotCustom(inventoryCustom, 1, 80, 26));
 		// Add CUSTOM slots = 1-5 depending on number of sockets available.
 		numberOfSlots = player.getCurrentEquippedItem().stackTagCompound.getInteger("CurrentSockets");
+		
+		INV_START = numberOfSlots*2;
+		INV_END = ARMOR_START+26;
+		HOTBAR_START = INV_END+1;
+		HOTBAR_END = HOTBAR_START+8;
+		
 		for(i=0;i<numberOfSlots;i++){
 			addSlotToContainer(new SlotMateria(inventoryCustom, i, 1, 0+(i*21)));
 		}
@@ -33,12 +39,6 @@ public class ContainerSocket extends Container
 		for(i=0;i<numberOfSlots;i++){
 			addSlotToContainer(new SlotSupport(inventoryCustom, i+numberOfSlots, 191, 0+(i*21)));
 		}
-		
-		// Add ARMOR slots; note you need to make a public version of SlotArmor
-		// just copy and paste the vanilla code into a new class and change what you need
-		//for (i = 0; i < 4; ++i) {
-		//	addSlotToContainer(new SlotArmor(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i, 8, 8 + i * 18, i));
-		//}
 		
 		// Add vanilla PLAYER INVENTORY - just copied/pasted from vanilla classes
 		for (i = 0; i < 3; ++i) {
@@ -122,19 +122,18 @@ public class ContainerSocket extends Container
 			}
 			// Item is in inventory / hotbar, try to place either in custom or armor slots
 			else {
-				// if item is our custom item
+				// if item is materia
 				if (itemstack1.getItem() instanceof FCraftMateriaGreen) {
-					if (!this.mergeItemStack(itemstack1, 0, InventorySocket.INV_SIZE, false)) {
+					if (!this.mergeItemStack(itemstack1, 0, numberOfSlots, false)) {
 						return null;
 					}
 				}
-				// if item is armor
-				else if (itemstack1.getItem() instanceof ItemArmor) {
-					int type = ((ItemArmor) itemstack1.getItem()).armorType;
-					if (!this.mergeItemStack(itemstack1, ARMOR_START + type, ARMOR_START + type + 1, false)) {
+				// if item is support materia
+				/*else if (itemstack1.getItem() instanceof FCraftMateriaGreen) {
+					if (!this.mergeItemStack(itemstack1, numberOfSlots, numberOfSlots*2, false)) {
 						return null;
 					}
-				}
+				}*/
 				// item in player's inventory, but not in action bar
 				else if (par2 >= INV_START && par2 < HOTBAR_START) {
 					// place in action bar
