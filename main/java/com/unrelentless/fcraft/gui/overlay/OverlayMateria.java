@@ -36,7 +36,7 @@ public class OverlayMateria extends Gui
 	public void onRenderMateriaOverlay(RenderGameOverlayEvent event)
 	{
 		EntityPlayer player = mc.thePlayer;
-		int numberOfSlots = player.getCurrentEquippedItem().stackTagCompound.getInteger("CurrentSockets");
+		int numberOfSlots;
 		
 		if (event.isCancelable() || event.type != ElementType.EXPERIENCE)
 		{
@@ -53,6 +53,8 @@ public class OverlayMateria extends Gui
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		
 		if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof FCraftWeapon){
+			numberOfSlots = player.getCurrentEquippedItem().stackTagCompound.getInteger("CurrentSockets");
+			
 			for(int i=0; i<numberOfSlots;i++){	
 				int materiaID = player.getCurrentEquippedItem().stackTagCompound.getInteger("SocketContents"+i);
 				int materiaMeta = player.getCurrentEquippedItem().stackTagCompound.getInteger("SocketContentsMeta"+i);
