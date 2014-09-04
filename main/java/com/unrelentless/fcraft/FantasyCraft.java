@@ -40,10 +40,10 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 public class FantasyCraft
 {
 	public static final String MODID = "fcraft";
-	public static final String VERSION = "0.2.2a";
+	public static final String VERSION = "0.2.3";
 
 	//Keybinds
-	public static KeyBinding socketMateria, guiTest;
+	public static KeyBinding socketMateria, materia1, materia2, materia3, materia4;
 
 	//says where the client and server 'proxy' code is loaded
 	@SidedProxy(clientSide = "com.unrelentless.fcraft.proxy.ClientProxy", serverSide = "com.unrelentless.fcraft.proxy.CommonProxy")
@@ -77,8 +77,17 @@ public class FantasyCraft
 		proxy.registerRenderers();
 		
 		//keybinding
-		socketMateria = new KeyBinding("Materia Socket", Keyboard.KEY_F, "FantasyCraft");
+		socketMateria = new KeyBinding("Open Socketing GUI", Keyboard.KEY_F, "FantasyCraft");
+		materia1 = new KeyBinding("Select Materia 1", Keyboard.KEY_Z, "FantasyCraft");
+		materia2 = new KeyBinding("Select Materia 2", Keyboard.KEY_X, "FantasyCraft");
+		materia3 = new KeyBinding("Select Materia 3", Keyboard.KEY_C, "FantasyCraft");
+		materia4 = new KeyBinding("Select Materia 4", Keyboard.KEY_V, "FantasyCraft");
+		
 		ClientRegistry.registerKeyBinding(socketMateria);
+		ClientRegistry.registerKeyBinding(materia1);
+		ClientRegistry.registerKeyBinding(materia2);
+		ClientRegistry.registerKeyBinding(materia3);
+		ClientRegistry.registerKeyBinding(materia4);
 		
 		//Registering the gui handlers
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new CommonProxy());
