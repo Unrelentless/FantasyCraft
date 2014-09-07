@@ -3,8 +3,15 @@ package com.unrelentless.fcraft.items.weapons;
 import java.util.List;
 import java.util.Random;
 
+import com.unrelentless.fcraft.extendedprops.FCraftExtendedPlayer;
+import com.unrelentless.fcraft.handlers.materia.GreenMateriaHandler;
+import com.unrelentless.fcraft.items.FCraftItem;
+import com.unrelentless.fcraft.items.FCraftItemMateria;
+import com.unrelentless.fcraft.items.FCraftMateriaGreen;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -48,7 +55,6 @@ public class FCraftWeapon extends ItemSword{
 				par1ItemStack.stackTagCompound.setString("SocketContentsString"+i, "--");	
 			}
 			par1ItemStack.stackTagCompound.setBoolean("Init", true);
-			//sendToServer(par1ItemStack, par2World, par3Entity);
 		}
 	}
 
@@ -59,30 +65,16 @@ public class FCraftWeapon extends ItemSword{
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		super.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
-/*		FCraftJobCore props = FCraftJobCore.get(par3EntityPlayer);
+		FCraftExtendedPlayer props = FCraftExtendedPlayer.get(par3EntityPlayer);
 		if(!par2World.isRemote && hasMateria(par1ItemStack)){
 			int materiaID = par1ItemStack.stackTagCompound.getInteger("SocketContents"+props.getCurrentMateria());
 			int materiaMeta = par1ItemStack.stackTagCompound.getInteger("SocketContentsMeta"+props.getCurrentMateria());
 			if(materiaID != 0){
-				if(materiaID == ItemID.MATERIA_BLACK_ID+256){
-					new BlackMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_BLUE_ID+256){
-					new BlueMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_GREEN_ID+256){
-					new GreenMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_PROTO_ID+256){
-
-				}else if(materiaID == ItemID.MATERIA_PURPLE_ID+256){
-					new PurpleMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_RED_ID+256){
-					new RedMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_WHITE_ID+256){
-					new WhiteMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
-				}else if(materiaID == ItemID.MATERIA_YELLOW_ID+256){
-					new YellowMateriaHandler(par1ItemStack, par2World, par3EntityPlayer ,materiaMeta);
+				if(materiaID == Item.getIdFromItem(FCraftItem.materiaGreen)){
+					new GreenMateriaHandler(par3EntityPlayer);
 				}
 			}
-		}*/
+		}
 		return par1ItemStack;
 	}
 

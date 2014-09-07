@@ -40,7 +40,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 public class FantasyCraft
 {
 	public static final String MODID = "fcraft";
-	public static final String VERSION = "0.2.4";
+	public static final String VERSION = "0.2.5";
 
 	//Keybinds
 	public static KeyBinding socketMateria, materia1, materia2, materia3, materia4;

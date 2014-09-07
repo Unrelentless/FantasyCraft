@@ -7,13 +7,13 @@ import net.minecraft.item.Item;
 
 public class FCraftItem {
 
-	public static Item materia;
+	public static Item materiaGreen;
 	
 	public static void init(){
 	
-		materia = new FCraftMateriaGreen();
+		materiaGreen = new FCraftMateriaGreen();
 		
-		GameRegistry.registerItem(materia, materia.getUnlocalizedName());
+		GameRegistry.registerItem(materiaGreen, materiaGreen.getUnlocalizedName());
 		
 	}
 }
