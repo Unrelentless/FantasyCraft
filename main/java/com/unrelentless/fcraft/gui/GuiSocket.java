@@ -63,10 +63,13 @@ public class GuiSocket extends GuiContainer
 				int materiaID = Item.getIdFromItem(this.inventory.getStackInSlot(i).getItem());
 				int materiaMeta = this.inventory.getStackInSlot(i).getItemDamage();
 				String s = (String) new ItemStack(Item.getItemById(materiaID), 1, materiaMeta).getTooltip(player, true).get(1);
-				fontRendererObj.drawString(s, xSize - fontRendererObj.getStringWidth(s)/2-70, 5+(i*21), 4210752);
+				fontRendererObj.drawString(s, xSize - fontRendererObj.getStringWidth(s)/2-(174/2), 5+(i*21), 4210752);
 			}else{
-				fontRendererObj.drawString("--", xSize - fontRendererObj.getStringWidth("--")/2-70, 5+(i*21), 4210752);
+				fontRendererObj.drawString("--", xSize - fontRendererObj.getStringWidth("--")/2-(174/2), 5+(i*21), 4210752);
 			}
+			fontRendererObj.drawString("Socketing", xSize - fontRendererObj.getStringWidth("Socketing")/2-(174/2), -25, 0xFFFF0000);
+			fontRendererObj.drawString("Active", 5, -15, 4210752);
+			fontRendererObj.drawString("Support", 132, -15, 4210752);
 		}
 	}
 
@@ -82,8 +85,8 @@ public class GuiSocket extends GuiContainer
 		int l = (this.height - 230) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, 256, 230);
 		for(int i=0;i<itemStack.stackTagCompound.getInteger("CurrentSockets");i++){
-			this.drawTexturedModalRect(k+40, l+31+(i*21), 0, 238, 18, 18);
-			this.drawTexturedModalRect(k+230, l+31+(i*21), 0, 238, 18, 18);
-		}
+			this.drawTexturedModalRect(k+50, l+31+(i*21), 0, 238, 18, 18);
+			this.drawTexturedModalRect(k+188, l+31+(i*21), 0, 238, 18, 18);
+		}		
 	}
 }

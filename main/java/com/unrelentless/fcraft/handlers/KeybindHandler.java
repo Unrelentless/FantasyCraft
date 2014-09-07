@@ -52,7 +52,7 @@ public class KeybindHandler {
 						props.setCurrentMateria(0);
 						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
 					}else{
-						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
+						player.addChatMessage(new ChatComponentText(materiaName));
 					}
 				}else if(FantasyCraft.materia2.isPressed() && numOfSockets>=2){
 					materiaID = player.getCurrentEquippedItem().stackTagCompound.getInteger("SocketContents"+1);
@@ -62,7 +62,7 @@ public class KeybindHandler {
 						props.setCurrentMateria(1);
 						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
 					}else{
-						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
+						player.addChatMessage(new ChatComponentText(materiaName));
 					}
 				}else if(FantasyCraft.materia3.isPressed() && numOfSockets>=3){
 					materiaID = player.getCurrentEquippedItem().stackTagCompound.getInteger("SocketContents"+2);
@@ -72,7 +72,7 @@ public class KeybindHandler {
 						props.setCurrentMateria(2);
 						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
 					}else{
-						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
+						player.addChatMessage(new ChatComponentText(materiaName));
 					}
 				}else if(FantasyCraft.materia4.isPressed() && numOfSockets>=4){
 					materiaID = player.getCurrentEquippedItem().stackTagCompound.getInteger("SocketContents"+3);
@@ -82,7 +82,7 @@ public class KeybindHandler {
 						props.setCurrentMateria(3);
 						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
 					}else{
-						player.addChatMessage(new ChatComponentText(materiaName+" selected."));
+						player.addChatMessage(new ChatComponentText(materiaName));
 					}
 				}
 			}

@@ -18,6 +18,7 @@ import com.unrelentless.fcraft.renderer.RenderEntityOrichalcum;
 import com.unrelentless.fcraft.renderer.RenderTileBlockMako;
 import com.unrelentless.fcraft.renderer.item.RenderItemBlockMako;
 import com.unrelentless.fcraft.renderer.item.RenderItemBusterSword;
+import com.unrelentless.fcraft.renderer.item.RenderItemNirvana;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -36,6 +37,7 @@ public class ClientProxy extends CommonProxy{
 
 		//Register Models
 		MinecraftForgeClient.registerItemRenderer(FCraftWeapon.swordBuster, (IItemRenderer)new RenderItemBusterSword());
+		MinecraftForgeClient.registerItemRenderer(FCraftWeapon.rodNirvana, (IItemRenderer)new RenderItemNirvana());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(FCraftBlock.blockMako), new RenderItemBlockMako(new RenderTileBlockMako(), new TileEntityBlockMako()));
 	
 		//Register overlays

@@ -32,12 +32,12 @@ public class ContainerSocket extends Container
 		HOTBAR_END = HOTBAR_START+8;
 		
 		for(i=0;i<numberOfSlots;i++){
-			addSlotToContainer(new SlotMateria(inventoryCustom, i, 1, 0+(i*21)));
+			addSlotToContainer(new SlotMateria(inventoryCustom, i, 11, 0+(i*21)));
 		}
 
 		//Add support materia slots
 		for(i=0;i<numberOfSlots;i++){
-			addSlotToContainer(new SlotSupport(inventoryCustom, i+numberOfSlots, 191, 0+(i*21)));
+			addSlotToContainer(new SlotSupport(inventoryCustom, i+numberOfSlots, 149, 0+(i*21)));
 		}
 		
 		// Add vanilla PLAYER INVENTORY - just copied/pasted from vanilla classes

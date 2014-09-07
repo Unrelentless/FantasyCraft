@@ -15,6 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class FCraftWeapon extends ItemSword{
 
 	public static ItemSword swordBuster;
+	public static ItemSword rodNirvana;
 	
 	public FCraftWeapon(ToolMaterial material) {
 		super(material);
@@ -22,9 +23,11 @@ public class FCraftWeapon extends ItemSword{
 	
 	public static void init(){
 		swordBuster = new SwordBuster();
+		rodNirvana = new RodNirvana();
 		
 		GameRegistry.registerItem(FCraftWeapon.swordBuster, swordBuster.getUnlocalizedName());
-	}
+		GameRegistry.registerItem(FCraftWeapon.rodNirvana, rodNirvana.getUnlocalizedName());
+		}
 	
 	@Override
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
