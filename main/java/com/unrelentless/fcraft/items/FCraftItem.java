@@ -1,9 +1,7 @@
 package com.unrelentless.fcraft.items;
 
-import com.unrelentless.fcraft.items.weapons.FCraftWeapon;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class FCraftItem {
 

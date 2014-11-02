@@ -32,6 +32,8 @@ public class GuiSocket extends GuiContainer
 	private static final ResourceLocation iconLocation = new ResourceLocation(FantasyCraft.MODID + ":textures/gui/socketingGui.png");
 	/** Could use IInventory type to be more generic, but this way will save an import... */
 	private final InventorySocket inventory;
+	
+	
 	public GuiSocket(EntityPlayer player, InventoryPlayer inventoryPlayer, InventorySocket inventoryCustom) {
 		super(new ContainerSocket(player, inventoryPlayer, inventoryCustom));
 		// if you need the player for something later on, store it in a local variable here as well
