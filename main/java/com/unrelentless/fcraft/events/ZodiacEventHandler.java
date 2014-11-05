@@ -9,14 +9,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 import com.unrelentless.fcraft.blocks.FCraftBlock;
-import com.unrelentless.fcraft.blocks.FCraftBlockOre;
-import com.unrelentless.fcraft.blocks.FCraftBlocks;
 import com.unrelentless.fcraft.extendedprops.FCraftExtendedPlayer;
 
 import cpw.mods.fml.client.FMLClientHandler;
