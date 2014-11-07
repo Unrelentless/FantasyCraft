@@ -1,14 +1,9 @@
 package com.unrelentless.fcraft.items.weapons;
 
 import java.util.List;
-import java.util.Random;
-
 import com.unrelentless.fcraft.extendedprops.FCraftExtendedPlayer;
 import com.unrelentless.fcraft.handlers.materia.GreenMateriaHandler;
 import com.unrelentless.fcraft.items.FCraftItem;
-import com.unrelentless.fcraft.items.FCraftItemMateria;
-import com.unrelentless.fcraft.items.FCraftMateriaGreen;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

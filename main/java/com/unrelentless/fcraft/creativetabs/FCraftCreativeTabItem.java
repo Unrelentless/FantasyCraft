@@ -1,11 +1,8 @@
 package com.unrelentless.fcraft.creativetabs;
 
-import com.unrelentless.fcraft.items.FCraftItem;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 

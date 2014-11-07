@@ -8,7 +8,6 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.unrelentless.fcraft.FantasyCraft;
-import com.unrelentless.fcraft.model.ModelBusterSword;
 import com.unrelentless.fcraft.model.ModelNirvana;
 
 

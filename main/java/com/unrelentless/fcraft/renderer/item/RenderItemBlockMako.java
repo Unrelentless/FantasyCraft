@@ -1,7 +1,5 @@
 package com.unrelentless.fcraft.renderer.item;
 
-import java.util.Random;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

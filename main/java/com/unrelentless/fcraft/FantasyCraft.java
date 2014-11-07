@@ -35,6 +35,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = FantasyCraft.MODID, version = FantasyCraft.VERSION)
 public class FantasyCraft
@@ -43,6 +45,7 @@ public class FantasyCraft
 	public static final String VERSION = "0.2.5";
 
 	//Keybinds
+	@SideOnly(Side.CLIENT)
 	public static KeyBinding socketMateria, materia1, materia2, materia3, materia4;
 
 	//says where the client and server 'proxy' code is loaded
